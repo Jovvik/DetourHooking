@@ -15,12 +15,11 @@ private:
   bool needsAbsoluteJmp;
   void *absJmp;
 
-protected:
+public:
   void *original;
   void *hook;
   size_t instructionLength;
 
-public:
   void *trampoline;
 
   int error;
