@@ -12,21 +12,23 @@
 
 class Hook {
 private:
-	void* original;
-	void* hook;
-	size_t instructionLength;
+  bool needsAbsoluteJmp;
+  void *absJmp;
 
-	bool needsAbsoluteJmp;
-	void* absJmp;
+protected:
+  void *original;
+  void *hook;
+  size_t instructionLength;
 
 public:
-	void* trampoline;
+  void *trampoline;
 
-	int error;
+  int error;
 
-	Hook(void* original, void* hook, size_t instructionLength = DETOURHOOKING_MIN_LENGTH);
-	void Enable();
-	void Disable();
+  Hook(void *original, void *hook,
+       size_t instructionLength = DETOURHOOKING_MIN_LENGTH);
+  void Enable();
+  void Disable();
 };
 
 #endif
